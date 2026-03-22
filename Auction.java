@@ -120,5 +120,18 @@ public class Auction
         }
         return unsold;
     }
+    
+    public Lot removeLot( int number){
+        int index = 0;
+        for(Lot lot: listOfLots){
+            index++;
+            if(lot.getNumber() == number){
+                listOfLots.remove(index);
+                return lot;
+            }
+            
+        }
+        return null;
+    }
 }
 
