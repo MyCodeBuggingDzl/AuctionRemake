@@ -67,6 +67,10 @@ public class Auction
                 System.out.println("Lot number: " + lotNumber +
                                    " already has a bid of: " +
                                    highestBid.getValue());
+                                   
+                                  // highestBid.getBidder();
+                                  // highestBid.getValue();
+                                   
             }
         }
     }
@@ -98,6 +102,21 @@ public class Auction
             System.out.println("Lot number: " + lotNumber +
                                " does not exist.");
             return null;
+        }
+    }
+    
+    public void close(){
+        for(Lot lot : listOfLots){
+            Bid highestBid = lot.getHighestBid();
+           
+            if(highestBid != null){
+                System.out.println("Lot" + lot.getNumber() + "sold to" +
+                                    highestBid.getBidder().getName() + 
+                                    "for" + highestBid.getValue());
+            }
+            else{
+                System.out.println("Lot"+lot.getNumber()+ "not sold");
+            }
         }
     }
 }
